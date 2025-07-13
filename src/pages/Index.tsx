@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Sparkles, Zap, Shield } from "lucide-react";
+import { MessageCircle, Sparkles, Zap, Shield, Scale } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-robot.jpg";
 
@@ -35,17 +35,20 @@ const Index = () => {
             <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
               Experience the next generation of AI chat technology. Intelligent, intuitive, and infinitely helpful.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/chatbot">
-                <Button size="lg" className="bg-gradient-primary hover:opacity-90 text-primary-foreground font-semibold px-8 py-3 shadow-glow">
-                  Start Chatting
-                  <MessageCircle className="ml-2 w-5 h-5" />
-                </Button>
-              </Link>
-              <Button size="lg" variant="outline" className="bg-background/10 border-border/20 text-foreground hover:bg-background/20">
-                Learn More
+                      <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/chatbot">
+              <Button size="lg" className="bg-gradient-primary hover:opacity-90 text-primary-foreground font-semibold px-8 py-3 shadow-glow">
+                Start Chatting
+                <MessageCircle className="ml-2 w-5 h-5" />
               </Button>
-            </div>
+            </Link>
+            <Link to="/legal-chatbot">
+              <Button size="lg" variant="outline" className="bg-background/10 border-border/20 text-foreground hover:bg-background/20">
+                <Scale className="mr-2 w-5 h-5" />
+                Legal AI Assistant
+              </Button>
+            </Link>
+          </div>
           </div>
 
           {/* Hero Image */}
@@ -74,7 +77,7 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="bg-card rounded-xl p-8 border border-border/20 shadow-elegant">
               <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mb-4">
                 <Sparkles className="w-6 h-6 text-primary-foreground" />
@@ -92,6 +95,16 @@ const Index = () => {
               <h3 className="text-xl font-semibold mb-3 text-card-foreground">Lightning Fast</h3>
               <p className="text-muted-foreground">
                 Experience instant responses with our optimized AI infrastructure designed for speed and reliability.
+              </p>
+            </div>
+
+            <div className="bg-card rounded-xl p-8 border border-border/20 shadow-elegant">
+              <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mb-4">
+                <Scale className="w-6 h-6 text-primary-foreground" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3 text-card-foreground">Indian Legal AI</h3>
+              <p className="text-muted-foreground">
+                Access comprehensive Indian legal information including case law, statutes, and legal advice powered by IndianKanoon.
               </p>
             </div>
 
