@@ -43,7 +43,7 @@ const Index = () => {
               </Button>
             </Link>
             <Link to="/legal-chatbot">
-              <Button size="lg" variant="outline" className="bg-background/10 border-border/20 text-foreground hover:bg-background/20">
+              <Button size="lg" className="bg-gradient-primary hover:opacity-90 text-primary-foreground font-semibold px-8 py-3 shadow-glow">
                 <Scale className="mr-2 w-5 h-5" />
                 Legal AI Assistant
               </Button>
