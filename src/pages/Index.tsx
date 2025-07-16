@@ -1,9 +1,22 @@
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Sparkles, Zap, Shield, Scale } from "lucide-react";
+import { MessageCircle, Sparkles, Zap, Shield, Scale, User, LogOut } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useAuth } from "@/contexts/AuthContext";
+import { LoginSignupModal } from "@/components/LoginSignupModal";
 import heroImage from "@/assets/hero-robot.jpg";
 
 const Index = () => {
+  const { user, isAuthenticated, logout } = useAuth();
+  const [showAuthModal, setShowAuthModal] = useState(false);
+
+  const handleLegalAIClick = (e: React.MouseEvent) => {
+    if (!isAuthenticated) {
+      e.preventDefault();
+      setShowAuthModal(true);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-hero">
       {/* Header */}
@@ -15,11 +28,30 @@ const Index = () => {
             </div>
             <span className="text-xl font-bold text-foreground">ChatAI</span>
           </div>
-          <Link to="/chatbot">
-            <Button variant="outline" className="bg-background/10 border-border/20 text-foreground hover:bg-background/20">
-              Try Chat
+          {isAuthenticated ? (
+            <div className="flex items-center gap-4">
+              <span className="text-foreground font-medium">
+                Hello, {user?.fullName}
+              </span>
+              <Button 
+                variant="outline" 
+                className="bg-background/10 border-border/20 text-foreground hover:bg-background/20"
+                onClick={logout}
+              >
+                <LogOut className="w-4 h-4 mr-2" />
+                Logout
+              </Button>
+            </div>
+          ) : (
+            <Button 
+              variant="outline" 
+              className="bg-background/10 border-border/20 text-foreground hover:bg-background/20"
+              onClick={() => setShowAuthModal(true)}
+            >
+              <User className="w-4 h-4 mr-2" />
+              Login / Sign Up
             </Button>
-          </Link>
+          )}
         </nav>
       </header>
 
@@ -42,7 +74,7 @@ const Index = () => {
                 <MessageCircle className="ml-2 w-5 h-5" />
               </Button>
             </Link>
-            <Link to="/legal-chatbot">
+            <Link to="/legal-chatbot" onClick={handleLegalAIClick}>
               <Button size="lg" className="bg-gradient-primary hover:opacity-90 text-primary-foreground font-semibold px-8 py-3 shadow-glow">
                 <Scale className="mr-2 w-5 h-5" />
                 Legal AI Assistant
@@ -149,6 +181,12 @@ const Index = () => {
           </p>
         </div>
       </footer>
+
+      {/* Login/Signup Modal */}
+      <LoginSignupModal 
+        isOpen={showAuthModal} 
+        onClose={() => setShowAuthModal(false)} 
+      />
     </div>
   );
 };

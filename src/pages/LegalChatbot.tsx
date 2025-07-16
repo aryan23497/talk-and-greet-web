@@ -5,7 +5,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { ArrowLeft, Send, Bot, User, Scale, BookOpen, AlertCircle, CheckCircle, Loader2 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
 import { indianKanoonService, LegalQuery } from "@/services/indianKanoonService";
 
 interface Message {
@@ -22,6 +23,13 @@ interface Message {
 }
 
 const LegalChatbot = () => {
+  const { isAuthenticated } = useAuth();
+  
+  // Redirect to home if not authenticated
+  if (!isAuthenticated) {
+    return <Navigate to="/" replace />;
+  }
+
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
