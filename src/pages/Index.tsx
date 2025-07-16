@@ -67,8 +67,8 @@ const Index = () => {
             <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
               Experience the next generation of AI chat technology. Intelligent, intuitive, and infinitely helpful.
             </p>
-                      <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/chatbot">
+                       <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/legal-chatbot" onClick={handleLegalAIClick}>
               <Button size="lg" className="bg-gradient-primary hover:opacity-90 text-primary-foreground font-semibold px-8 py-3 shadow-glow">
                 Start Chatting
                 <MessageCircle className="ml-2 w-5 h-5" />
@@ -163,7 +163,7 @@ const Index = () => {
             <p className="text-lg text-muted-foreground mb-8">
               Join thousands of users who are already having amazing conversations with our AI.
             </p>
-            <Link to="/chatbot">
+            <Link to="/legal-chatbot" onClick={handleLegalAIClick}>
               <Button size="lg" className="bg-gradient-primary hover:opacity-90 text-primary-foreground font-semibold px-8 py-3 shadow-glow">
                 Start Your First Chat
                 <MessageCircle className="ml-2 w-5 h-5" />
