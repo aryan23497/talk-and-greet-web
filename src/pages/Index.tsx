@@ -26,7 +26,7 @@ const Index = () => {
             <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
               <MessageCircle className="w-5 h-5 text-primary-foreground" />
             </div>
-            <span className="text-xl font-bold text-foreground">ChatAI</span>
+            <span className="text-xl font-bold text-foreground">FlameOps</span>
           </div>
           {isAuthenticated ? (
             <div className="flex items-center gap-4">
@@ -67,13 +67,7 @@ const Index = () => {
             <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
               Experience the next generation of AI chat technology. Intelligent, intuitive, and infinitely helpful.
             </p>
-                       <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/legal-chatbot" onClick={handleLegalAIClick}>
-              <Button size="lg" className="bg-gradient-primary hover:opacity-90 text-primary-foreground font-semibold px-8 py-3 shadow-glow">
-                Start Chatting
-                <MessageCircle className="ml-2 w-5 h-5" />
-              </Button>
-            </Link>
+                       <div className="flex justify-center">
             <Link to="/legal-chatbot" onClick={handleLegalAIClick}>
               <Button size="lg" className="bg-gradient-primary hover:opacity-90 text-primary-foreground font-semibold px-8 py-3 shadow-glow">
                 <Scale className="mr-2 w-5 h-5" />
