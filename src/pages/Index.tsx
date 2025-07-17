@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Sparkles, Zap, Shield, Scale, User, LogOut } from "lucide-react";
+import { MessageCircle, Sparkles, Zap, Shield, Scale, User, LogOut, Flame } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
@@ -24,7 +24,7 @@ const Index = () => {
         <nav className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-              <MessageCircle className="w-5 h-5 text-primary-foreground" />
+              <Flame className="w-5 h-5 text-primary-foreground" />
             </div>
             <span className="text-xl font-bold text-foreground">FlameOps</span>
           </div>
